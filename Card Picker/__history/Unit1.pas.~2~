@@ -1,0 +1,62 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Panel1: TPanel;
+    Image1: TImage;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+suitnum: integer;
+cardnum: integer;
+suit: string;
+card: string;
+
+begin
+suitnum := Random (4)+1;
+cardnum := Random (13)+1;
+
+case suitnum  of
+1 : suit := 'hearts';
+2 : suit := 'diamonds';
+3 : suit := 'spades';
+4 : suit := 'clubs';
+end;
+
+case cardnum of
+1 : card := 'Ace';
+11: card := 'Jack';
+12 : card := 'Queen';
+13 : card := 'King';
+end;
+if (cardnum >=2) And (cardnum <=10) then
+card := IntToStr(cardnum);
+
+begin
+Panel1.Caption := ('Your Card is the '+ card + ' of '+suit);
+Image1.Picture.LoadFromFile('D:\Work 2018\IT\Delphi\card Picker\Cards\');
+end;
+
+end;
+
+end.
