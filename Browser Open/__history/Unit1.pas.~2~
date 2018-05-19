@@ -1,0 +1,42 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ShellApi ;
+
+type
+  TForm1 = class(TForm)
+    lblurl: TLabel;
+    urledt: TEdit;
+    browser: TButton;
+    procedure urledtChange(Sender: TObject);
+    procedure browserClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.browserClick(Sender: TObject);
+var
+url : string;
+
+begin
+url := urledt.Text;
+
+ShellExecute(self.WindowHandle,'open',PChar(url),nil,nil, SW_SHOWNORMAL);
+
+
+end;
+
+
+end.
