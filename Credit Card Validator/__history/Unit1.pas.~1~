@@ -1,0 +1,58 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    creditcardedt: TEdit;
+    label1: TLabel;
+    btnval: TButton;
+    procedure btnvalClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnvalClick(Sender: TObject);
+var
+cardnum, i, times : integer;
+
+begin
+cardnum := StrToInt(creditcardedt.Text);
+if (Length(IntToStr(cardnum))>= 6) and (Length(IntToStr(cardnum))<= 16) then
+ if Odd(Length(IntToStr(cardnum))) then
+  times := Length(IntToStr(cardnum))-1
+
+  else
+  times := Length(IntToStr(cardnum))
+  end;
+
+
+
+
+
+
+for i := 1 to (Length(cardnum) div 2) do
+
+
+
+
+
+
+
+ShowMessage(IntToStr(cardnum));
+end;
+
+end.
